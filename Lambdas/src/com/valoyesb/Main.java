@@ -32,23 +32,23 @@ public class Main {
 		employees.add(snow);
 		
 		// 1. with an anonymous class
-		Collections.sort(employees, new Comparator<Employee>() {
-
-			@Override
-			public int compare(Employee employee1, Employee employee2) {
-				return employee1.getName().compareTo(employee2.getName());
-			}
-		});
+//		Collections.sort(employees, new Comparator<Employee>() {
+//
+//			@Override
+//			public int compare(Employee employee1, Employee employee2) {
+//				return employee1.getName().compareTo(employee2.getName());
+//			}
+//		});
+//		
+//		for(Employee employee : employees){
+//			System.out.println(employee.getName());
+//		}
 		
+		// let's do it with Lambda
+		Collections.sort(employees, (employee1, employee2) -> employee1.getName().compareTo(employee2.getName()));
 		for(Employee employee : employees){
 			System.out.println(employee.getName());
 		}
-		
-		// let's do it with Lambda
-		/*Collections.sort(employees, (employee1, employee2) -> employee1.getName().compareTo(employee2.getName()));
-		for(Employee employee : employees){
-			System.out.println(employee.getName());
-		}*/
 
 	}
 
