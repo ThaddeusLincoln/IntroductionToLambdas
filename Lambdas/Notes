@@ -1,0 +1,11 @@
+- Lambdas o Lambda Expreressions son una nueva funcionalidad incorporada en Java 8 
+y lo que hacen es proveernos una manera más sencilla de trabajar con interfaces que sólo tienen un método. 
+Y vienen a ser utilizadas por ejemplo en casos o situaciones en las cuales utilizábamos Anonymous classes.
+
+- En una LAMBDA expression siempre tendremos tres partes: 1) parameters list, 2) -> called "arrow Token" 3) the body
+
+- Como el compilador necesita hacer un match entre la lambda expression y un método, las expresiones LAMBDA 
+sólo pueden ser utilizadas con interfaces que contengan un único method a implementar, 
+dichas interfaces también se conocen como "functional interfaces"
+
+- Lambda expressions are meant to be concise, so when executing a single statement a semicolon (;) is not allowed
