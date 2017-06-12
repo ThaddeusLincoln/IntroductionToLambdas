@@ -21,7 +21,7 @@ public class Main {
 		
 		// for using Comparator
 		Employee john = new Employee("John Doe", 51);
-		Employee jane = new Employee("Jane Doe", 27);
+		Employee jane = new Employee("Aretha Franklin", 27);
 		Employee elvis = new Employee("Elvis-Calvin Doe", 12);
 		Employee snow = new Employee("Snow White", 19);
 		

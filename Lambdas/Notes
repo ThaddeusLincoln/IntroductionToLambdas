@@ -1,4 +1,4 @@
-- Lambdas o Lambda Expreressions son una nueva funcionalidad incorporada en Java 8 
+- Lambdas o Lambda Expressions son una nueva funcionalidad incorporada en Java 8 
 y lo que hacen es proveernos una manera más sencilla de trabajar con interfaces que sólo tienen un método. 
 Y vienen a ser utilizadas por ejemplo en casos o situaciones en las cuales utilizábamos Anonymous classes.
 
@@ -9,3 +9,6 @@ sólo pueden ser utilizadas con interfaces que contengan un único method a implem
 dichas interfaces también se conocen como "functional interfaces"
 
 - Lambda expressions are meant to be concise, so when executing a single statement a semicolon (;) is not allowed
+
+- Note: en una lambda expression usamos parentesis, cuando hay mas de 1 parametro o cuando no hay ninguno
+
