@@ -1,0 +1,25 @@
+- Java only have 8 primitive data types: 
+boolean, byte, short, int, long, float, double, and char. All the rest are objects
+
+- The new instance of an object is created in the heap. 
+And in the stack lo que tendremos es una referencia a la dirección en memoria del objeto.
+
+- Parameters in Java are always passed by value
+
+- Cuando un method termina, its scope ends, quiere decir que todas sus local variables, 
+parámetros, etc desaparecen (esto es aplicabale para los contructors tb).
+
+- "-this" keyword no es mandatory in Java
+
+- cada method tiene su propio scope, incluso the main method
+
+- In Java, method parameters are passed by value, 
+a copy of that value is passed into the method. 
+Changing the copy of the primitive type will have no impact on the parameter. 
+
+- Without any references pointing to that object originally referred to by c2, 
+the garbage collector can destroy the object. 
+If you needed to keep that object around for later, 
+you'd need to assign it to a temporary reference.
+
+-Dhttp.proxyHost=server1.host.com -Dhttp.proxyPort=8080 

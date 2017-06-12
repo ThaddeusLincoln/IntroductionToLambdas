@@ -1,0 +1,15 @@
+- Si una clase es pública tiene que estaar en un documento ue se llama igual que 
+la clase con la extension .java
+
+- En Java no es posible tener 2+ methods con el mismo nombre, 
+la misma lista de parametros y el mismo return type. 
+Y esto está relacionado al funcionamiento del compiler. 
+At compile time javac (el compilador) tiene que decidir cual versión del 
+método debe ser llamada y para ello usa la lista de parámetros, 
+no le es suficiente hacerlo utilizando sólo el return type.
+
+Method signature: is composed of 2 parts: 1) method's name, 
+and the parameter list (number, type and order of parameters). 
+As long as the parameter list is differ, Java allows you to overload 
+the method and even change the return type because the return 
+type is not part of the method signature (it's ignored).
