@@ -9,18 +9,28 @@ public class Controller {
 
 	@FXML
 	private Button clickMeButton;
-	
-	// set an action to a button without lambdas
+		
 	public void initialize(){
 		
-		clickMeButton.setOnAction(new EventHandler<ActionEvent>() {
+		// 1. set an action to a button without lambdas
+		/*clickMeButton.setOnAction(new EventHandler<ActionEvent>() {
 			
 			@Override
 			public void handle(ActionEvent event) {
 				System.out.println("You have clicked the button");
 			}
-		});
+		});*/
+		
+		// 2. doing the same as before with lambdas
+		clickMeButton.setOnAction(event -> System.out.println("Has hecho click en el boton! Lambdas, oh yeah!"));
+		
 		
 	}
+	
+	
+	
+	
+	
+	
 	
 }
