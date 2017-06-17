@@ -1,20 +1,17 @@
 package demos;
 
-import processing.core.PApplet;
-import de.fhpotsdam.unfolding.UnfoldingMap;
-import de.fhpotsdam.unfolding.utils.MapUtils;
-import de.fhpotsdam.unfolding.providers.*;
-import de.fhpotsdam.unfolding.providers.Google.*;
-
-import java.util.List;
-import de.fhpotsdam.unfolding.data.Feature;
-import de.fhpotsdam.unfolding.data.GeoJSONReader;
-
+import java.util.Arrays;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
-
+import de.fhpotsdam.unfolding.UnfoldingMap;
+import de.fhpotsdam.unfolding.data.Feature;
+import de.fhpotsdam.unfolding.data.GeoJSONReader;
 import de.fhpotsdam.unfolding.marker.Marker;
+import de.fhpotsdam.unfolding.providers.Google;
+import de.fhpotsdam.unfolding.utils.MapUtils;
+import processing.core.PApplet;
 
 /**
  * Visualizes life expectancy in different countries. 
@@ -58,7 +55,7 @@ public class LifeExpectancy extends PApplet {
 	//Red-orange indicates low (near 40)
 	//Blue indicates high (near 100)
 	private void shadeCountries() {
-		for (Marker marker : countryMarkers) {
+		/*for (Marker marker : countryMarkers) {
 			// Find data for country of the current marker
 			String countryId = marker.getId();
 			if (lifeExpByCountry.containsKey(countryId)) {
@@ -70,7 +67,22 @@ public class LifeExpectancy extends PApplet {
 			else {
 				marker.setColor(color(150,150,150));
 			}
-		}
+		}*/
+		
+		// using Lambdas instead valoyesb
+		countryMarkers.forEach(marker -> {
+			// Find data for country of the current marker
+			String countryId = marker.getId();
+			if (lifeExpByCountry.containsKey(countryId)) {
+				float lifeExp = lifeExpByCountry.get(countryId);
+				// Encode value as brightness (values range: 40-90)
+				int colorLevel = (int) map(lifeExp, 40, 90, 10, 255);
+				marker.setColor(color(255-colorLevel, 100, colorLevel));
+			}
+			else {
+				marker.setColor(color(150,150,150));
+			}
+		});
 	}
 
 	//Helper method to load life expectancy data from file
@@ -78,7 +90,7 @@ public class LifeExpectancy extends PApplet {
 		Map<String, Float> lifeExpMap = new HashMap<String, Float>();
 
 		String[] rows = loadStrings(fileName);
-		for (String row : rows) {
+		/*for (String row : rows) {
 			// Reads country name and population density value from CSV row
 			// NOTE: Splitting on just a comma is not a great idea here, because
 			// the csv file might have commas in their entries, as this one does.  
@@ -88,7 +100,21 @@ public class LifeExpectancy extends PApplet {
 			if (columns.length == 6 && !columns[5].equals("..")) {
 				lifeExpMap.put(columns[4], Float.parseFloat(columns[5]));
 			}
-		}
+		}*/
+		
+		// using Lambdas instead valoyesb
+		Arrays.stream(rows).forEach(row -> {
+			// Reads country name and population density value from CSV row
+			// NOTE: Splitting on just a comma is not a great idea here, because
+			// the csv file might have commas in their entries, as this one does.  
+			// We do a smarter thing in ParseFeed, but for simplicity, 
+			// we just use a comma here, and ignore the fact that the first field is split.
+			
+			String[] columns = row.split(",");
+			if (columns.length == 6 && !columns[5].equals("..")) {
+				lifeExpMap.put(columns[4], Float.parseFloat(columns[5]));
+			}
+		});
 
 		return lifeExpMap;
 	}
