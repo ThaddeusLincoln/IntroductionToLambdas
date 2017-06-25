@@ -85,6 +85,20 @@ public class Main {
 		AnotherClass anotherClass2 = new AnotherClass();
 		String s1 = anotherClass2.doSomethingWithLambda();
 		System.out.println(s1);
+		
+		// SAMPLE 6 ----------------------------------------------------------------------------
+		AnotherClass.printValue();
+		
+		// -------------------------- SAMPLE 7 -------------------------------------------------
+		for(Employee employee : employees){
+			new Thread(	() -> System.out.println("The employee's age is : " + employee.getAge())).start();
+		}
+		
+		// -------------------------- SAMPLE 8 -------------------------------------------------
+		employees.forEach( e -> {
+			System.out.println("The employee's name is : " + e.getName());
+			System.out.println("The employee's age is : " + e.getAge());
+		});
 	}
 	
 	public static String doStringStuff(UpperConcat uc, String s1, String s2){
@@ -152,6 +166,24 @@ class AnotherClass{
 				System.out.println("The AnotherClass class's when calling from the lambda is: " + getClass().getSimpleName());
 				String result1 = s1.toUpperCase() + s2.toUpperCase();
 				return result1;}, "String1", "String2");
+	}
+	
+	public static void printValue(){
+		
+		int number = 25;
+		
+		Runnable r = () -> {
+			
+			try {
+				Thread.sleep(5000);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+			System.out.println("The value is: " + number);
+		};
+		
+		new Thread(r).start();
+		
 	}
 }
 
