@@ -18,7 +18,7 @@ public class SearchBinaryMain {
 		
 		while (low <= high){
 			
-			int mid = (high+low) / 2;
+			int mid = low + (high-low)/2;
 			
 			if(valorBuscado == array[mid]){
 				return mid;
@@ -45,7 +45,7 @@ public class SearchBinaryMain {
 		if(low > high)
 			return -1;
 		
-		int mid = (low+high)/2;
+		int mid = low + (high-low)/2;
 		
 		if(valorBuscado.intValue() == array[mid].intValue()){
 			return mid;
