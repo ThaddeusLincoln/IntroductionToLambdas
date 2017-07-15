@@ -1,6 +1,7 @@
 package module6;
 
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.Objects;
 import java.util.Optional;
 
@@ -12,7 +13,7 @@ public class SearchLinearMain {
 						  new Airport("Orly", "ORY"), 
 						  new Airport("Nice", "NCE"),
 						  new Airport("Marseille", "MRS"),
-						  new Airport("JFK", "MRS")};
+						  new Airport("JFK", "JFK")};
 	
 	public static void main(String[] args){
 		
@@ -25,6 +26,10 @@ public class SearchLinearMain {
 		// find first
 		Optional<Airport> airportFound = Arrays.stream(airports).filter(a -> Objects.equals(a.getIataCode(), airportCode)).findFirst();
 		System.out.println(airportFound.isPresent());
+		
+		// sorting after implementing Comparable<Airport>
+		Collections.sort(Arrays.asList(airports));
+		Arrays.stream(airports).forEach(System.out::println);
 		
 	}
 
