@@ -1,13 +1,26 @@
 package module6;
 
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
+
 public class SearchBinaryMain {
 
 	public static void main(String[] args){
 		
 		int[] array = {1, 10, 200, 300, 500};
 		Integer[] array2 = {1, 10, 200, 300, 500};
-		System.out.println("Binary Search secuential: " + binarySearchSequencial(array, 10));
-		System.out.println("Binary Search recursive: " + binarySearchRecursive(array2, 10));
+		
+		// using methods refference and Java 8 to initialize el array
+		// List<Integer> collect = IntStream.range(1, 6).mapToObj(Integer::new).collect(Collectors.toList());
+		// IntStream.range(1, 6).mapToObj(Integer::new).collect(Collectors.toList()).forEach(System.out::println);
+		Integer[] array3 = IntStream.range(1, 6).mapToObj(Integer::new).collect(Collectors.toList()).stream().toArray(Integer[]::new);
+		
+		
+//		System.out.println("Binary Search secuential: " + binarySearchSequencial(array, 10));
+//		System.out.println("Binary Search recursive: " + binarySearchRecursive(array2, 10));
+		System.out.println("Binary Search recursive: " + binarySearchRecursive(array3, 2));
 		
 	}
 	
