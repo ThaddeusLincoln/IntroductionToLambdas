@@ -85,7 +85,7 @@ public class EarthquakeCityMap extends PApplet {
 		//earthquakesURL = "test2.atom";
 		
 		// Uncomment this line to take the quiz
-		//earthquakesURL = "quiz2.atom";
+		earthquakesURL = "quiz2.atom";
 		
 		
 		// (2) Reading in earthquake data and geometric properties
@@ -124,7 +124,7 @@ public class EarthquakeCityMap extends PApplet {
 	    map.addMarkers(quakeMarkers);
 	    map.addMarkers(cityMarkers);
 	    
-	    
+	    sortAndPrint(5);
 	}  // End setup
 	
 	
@@ -132,13 +132,24 @@ public class EarthquakeCityMap extends PApplet {
 		background(0);
 		map.draw();
 		addKey();
-		
+		// sortAndPrint(numToPrint);
 	}
 	
 	
 	// TODO: Add the method:
 	//   private void sortAndPrint(int numToPrint)
 	// and then call that method from setUp
+	private void sortAndPrint(int numToPrint){
+		
+		// Marker[] array = quakeMarkers.stream().sorted().toArray(Marker[]::new);
+		// Arrays.stream(markersArray).forEach(System.out::println);
+		quakeMarkers.stream().sorted().limit(30).forEach(System.out::println);
+		
+//		for(int i = 0; i < 5; i++){
+//			
+//			System.out.println(array[i]);
+//		}
+	}
 	
 	/** Event handler that gets called automatically when the 
 	 * mouse moves.
